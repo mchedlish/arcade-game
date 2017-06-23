@@ -60,6 +60,7 @@ Player.prototype.update = function (dt) {
         if (self.x >= enemy.x - 35 && self.x <= enemy.x + 35) {
             if (self.y >= enemy.y - 40 && self.y <= enemy.y + 40) {
                 self.reset();
+                scoreDown();
             }
         }
     });
@@ -118,5 +119,10 @@ var scoreUp = function () {
     playerScore += 1;
     document.querySelector(".upDown").innerHTML = "Your score is " + playerScore;
     console.log(playerScore);
+
+}
+var scoreDown = function () {
+    playerScore -= 1;
+    document.querySelector(".upDown").innerHTML = "Your score is " + playerScore;
 
 }

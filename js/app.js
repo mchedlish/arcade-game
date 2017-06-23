@@ -122,7 +122,10 @@ var scoreUp = function () {
 
 }
 var scoreDown = function () {
-    playerScore -= 1;
+    playerScore -= 2;
+    if (playerScore < 0) {
+        playerScore = 0;
+    }
     document.querySelector(".upDown").innerHTML = "Your score is " + playerScore;
 
 }

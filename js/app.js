@@ -116,6 +116,7 @@ var playerScore = 0;
 var scoreUp = function () {
 
     playerScore += 1;
+    document.querySelector(".upDown").innerHTML = "Your score is " + playerScore;
     console.log(playerScore);
 
 }

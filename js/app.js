@@ -120,6 +120,8 @@ var scoreUp = function () {
     document.querySelector(".upDown").innerHTML = "Your score is " + playerScore;
     if (playerScore == 5) {
         document.querySelector(".upDown").innerHTML = "Congratulations! You are WINNER!!!!";
+        document.querySelector(".win").style.display = "block";
+        document.querySelector(".upDown").style.fontSize = "60px";
         playerScore = 0;
 
     }

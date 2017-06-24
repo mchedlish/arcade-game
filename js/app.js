@@ -2,9 +2,17 @@ var Enemy = function (x, y, speed) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.speed = Math.floor((Math.random() * 180) + 100);
+    this.speed = 0;
+
+
 };
 
+document.querySelector(".myButton").addEventListener("click", function () {
+    allEnemies[0].speed = Math.floor((Math.random() * 180) + 100);
+    allEnemies[1].speed = Math.floor((Math.random() * 180) + 100);
+    allEnemies[2].speed = Math.floor((Math.random() * 180) + 100);
+});
+//
 Enemy.prototype.update = function (dt) {
     if (this.x <= 505) {
         this.x = this.x + this.speed * dt;
@@ -123,6 +131,11 @@ var scoreUp = function () {
         document.querySelector(".win").style.display = "block";
         document.querySelector(".upDown").style.fontSize = "60px";
         playerScore = 0;
+        //Here game stops
+        allEnemies[0].speed = 0;
+        allEnemies[1].speed = 0;
+        allEnemies[2].speed = 0;
+
 
     }
 

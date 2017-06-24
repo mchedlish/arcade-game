@@ -7,11 +7,7 @@ var Enemy = function (x, y, speed) {
 
 };
 
-document.querySelector(".myButton").addEventListener("click", function () {
-    allEnemies[0].speed = Math.floor((Math.random() * 180) + 100);
-    allEnemies[1].speed = Math.floor((Math.random() * 180) + 100);
-    allEnemies[2].speed = Math.floor((Math.random() * 180) + 100);
-});
+
 //
 Enemy.prototype.update = function (dt) {
     if (this.x <= 505) {
@@ -94,7 +90,7 @@ Player.prototype.reset = function () {
 
 
 // Instantiation of enemies and player objects:
-var allEnemies = [new Enemy(20, 60), new Enemy(0, 145), new Enemy(40, 225)]; //creates an array of Enemies
+var allEnemies = [new Enemy(30, 60), new Enemy(0, 145), new Enemy(90, 225)]; //creates an array of Enemies
 
 //this function will DISPLAY Enemies:
 /*(function displayEnemies() {
@@ -125,7 +121,7 @@ var playerScore = 0;
 var scoreUp = function () {
 
     playerScore += 1;
-    document.querySelector(".upDown").innerHTML = "Your score is " + playerScore;
+    document.querySelector(".upDown").innerHTML = "Your score is -- " + playerScore;
     if (playerScore == 5) {
         document.querySelector(".upDown").innerHTML = "Congratulations! You are WINNER!!!!";
         document.querySelector(".win").style.display = "block";
@@ -135,17 +131,31 @@ var scoreUp = function () {
         allEnemies[0].speed = 0;
         allEnemies[1].speed = 0;
         allEnemies[2].speed = 0;
-
-
     }
-
-
 }
 var scoreDown = function () {
     playerScore -= 2;
     if (playerScore < 0) {
         playerScore = 0;
     }
-    document.querySelector(".upDown").innerHTML = "Your score is " + playerScore;
+    document.querySelector(".upDown").innerHTML = "Your score is -- " + playerScore;
 
 }
+document.querySelector(".start").addEventListener("click", function () {
+    allEnemies[0].speed = Math.floor((Math.random() * 180) + 100);
+    allEnemies[1].speed = Math.floor((Math.random() * 180) + 100);
+    allEnemies[2].speed = Math.floor((Math.random() * 180) + 100);
+});
+
+document.querySelector(".stop").addEventListener("click", function () {
+    allEnemies[0].speed = 0;
+    allEnemies[1].speed = 0;
+    allEnemies[2].speed = 0;
+    allEnemies[0].x = 0;
+    allEnemies[1].x = 0;
+    allEnemies[2].x = 0;
+    playerScore = 0;
+    document.querySelector(".win").style.display = "none";
+    document.querySelector(".upDown").innerHTML = "Your score is -- 0";
+
+});

@@ -22,10 +22,11 @@ Enemy.prototype.render = function () {
 };
 
 var Player = function () {
-    this.sprite = 'images/char-pink-girl.png';
+    //this.sprite = 'images/char-pink-girl.png';
     this.x = 200;
     this.y = 400;
 };
+
 
 Player.prototype.update = function (dt) {
 
@@ -103,7 +104,7 @@ var allEnemies = [new Enemy(30, 60), new Enemy(0, 145), new Enemy(90, 225)]; //c
 
 var player = new Player();
 
-
+player.sprite = 'images/char-pink-girl.png';
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method.
@@ -141,21 +142,36 @@ var scoreDown = function () {
     document.querySelector(".upDown").innerHTML = "Your score is -- " + playerScore;
 
 }
-document.querySelector(".start").addEventListener("click", function () {
-    allEnemies[0].speed = Math.floor((Math.random() * 180) + 100);
-    allEnemies[1].speed = Math.floor((Math.random() * 180) + 100);
-    allEnemies[2].speed = Math.floor((Math.random() * 180) + 100);
-});
 
-document.querySelector(".stop").addEventListener("click", function () {
-    allEnemies[0].speed = 0;
-    allEnemies[1].speed = 0;
-    allEnemies[2].speed = 0;
-    allEnemies[0].x = 0;
-    allEnemies[1].x = 0;
-    allEnemies[2].x = 0;
-    playerScore = 0;
-    document.querySelector(".win").style.display = "none";
-    document.querySelector(".upDown").innerHTML = "Your score is -- 0";
+
+var switching = true;
+document.querySelector(".start").addEventListener("click", function () {
+
+
+    if (switching) {
+        allEnemies[0].speed = Math.floor((Math.random() * 180) + 100);
+        allEnemies[1].speed = Math.floor((Math.random() * 180) + 100);
+        allEnemies[2].speed = Math.floor((Math.random() * 180) + 100);
+        document.querySelector(".win").style.display = "none";
+        switching = false;
+        document.querySelector(".start").innerHTML = "RESET Game";
+
+
+    } else {
+
+        allEnemies[0].speed = 0;
+        allEnemies[1].speed = 0;
+        allEnemies[2].speed = 0;
+        allEnemies[0].x = 0;
+        allEnemies[1].x = 0;
+        allEnemies[2].x = 0;
+        playerScore = 0;
+        document.querySelector(".win").style.display = "none";
+        document.querySelector(".upDown").innerHTML = "Your score is -- 0";
+        switching = true;
+        document.querySelector(".start").innerHTML = "START Game";
+
+    }
+
 
 });

@@ -14,3 +14,13 @@ body {
     font-size: 40px;
     font-weight: 700;
 }
+
+.instructions {
+    margin-left: 100px;
+    width: 15%;
+}
+
+.container {
+    width: 50%;
+    margin: auto
+}

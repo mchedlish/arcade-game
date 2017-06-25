@@ -101,3 +101,9 @@ body {
     font-weight: 600;
     text-shadow: 2px 2px 5px grey;
 }
+
+.instructions {
+    margin-right: 50px;
+    width: 100%;
+    background-color: darkgray;
+}

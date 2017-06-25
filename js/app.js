@@ -95,14 +95,6 @@ Player.prototype.reset = function () {
 // Instantiation of enemies and player objects:
 var allEnemies = [new Enemy(30, 60), new Enemy(0, 145), new Enemy(90, 225)]; //creates an array of Enemies
 
-//this function will DISPLAY Enemies:
-/*(function displayEnemies() {
-
-    allEnemies.push(new Enemy(0, 50));
-    allEnemies.push(new Enemy(0, 140));
-    allEnemies.push(new Enemy(0, 230));
-}());*/
-
 
 var player = new Player();
 player.sprite = "images/char-boy.png";
@@ -203,6 +195,8 @@ document.querySelector(".start").addEventListener("click", function () {
         document.querySelector(".upDown").innerHTML = "Your score is -- 0";
         switching = true;
         document.querySelector(".start").innerHTML = "START Game";
+        player.x = 200;
+        player.y = 400;
 
     }
 

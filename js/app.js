@@ -8,6 +8,8 @@ var Enemy = function (x, y, speed) {
 };
 
 
+
+
 //
 Enemy.prototype.update = function (dt) {
     if (this.x <= 505) {
@@ -22,7 +24,7 @@ Enemy.prototype.render = function () {
 };
 
 var Player = function () {
-    //this.sprite = 'images/char-pink-girl.png';
+
     this.x = 200;
     this.y = 400;
 };
@@ -103,8 +105,39 @@ var allEnemies = [new Enemy(30, 60), new Enemy(0, 145), new Enemy(90, 225)]; //c
 
 
 var player = new Player();
+player.sprite = "images/char-boy.png";
+document.querySelector(".boy").addEventListener("click",
+    function () {
 
-player.sprite = 'images/char-pink-girl.png';
+        player.sprite = "images/char-boy.png";
+    });
+
+document.querySelector(".cat-girl").addEventListener("click",
+    function () {
+
+        player.sprite = "images/char-cat-girl.png";
+    });
+
+
+document.querySelector(".horn-girl").addEventListener("click",
+    function () {
+        player.sprite = "images/char-horn-girl.png";
+
+    });
+
+document.querySelector(".pink-girl").addEventListener("click",
+    function () {
+
+        player.sprite = "images/char-pink-girl.png";
+    });
+document.querySelector(".princess-girl").addEventListener("click",
+    function () {
+        player.sprite = "images/char-princess-girl.png";
+
+    });
+
+
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method.
@@ -123,7 +156,7 @@ var scoreUp = function () {
 
     playerScore += 1;
     document.querySelector(".upDown").innerHTML = "Your score is -- " + playerScore;
-    if (playerScore == 5) {
+    if (playerScore == 50) {
         document.querySelector(".upDown").innerHTML = "Congratulations! You are WINNER!!!!";
         document.querySelector(".win").style.display = "block";
         document.querySelector(".upDown").style.fontSize = "60px";

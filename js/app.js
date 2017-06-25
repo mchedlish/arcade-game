@@ -33,24 +33,25 @@ var Player = function () {
 Player.prototype.update = function (dt) {
 
     var self = this;
+    //below made changes as it was required by reviewer to prevern player to fall of the screen
 
-    if (this.pressedKey === 'left' && this.x >= 0) {
-        this.x = this.x - 100;
+    if (this.pressedKey === 'left' && this.x >= 100) {
+        self.x = self.x - 100;
     }
 
 
-    if (this.pressedKey === 'right' && this.x <= 400) {
-        this.x = this.x + 100;
+    if (this.pressedKey === 'right' && this.x <= 300) {
+        self.x = self.x + 100;
     }
 
 
     if (this.pressedKey === 'up' && this.y >= 0) {
-        this.y = this.y - 100;
+        self.y = self.y - 100;
     }
 
 
-    if (this.pressedKey === 'down' && this.y <= 400) {
-        this.y = this.y + 90;
+    if (this.pressedKey === 'down' && this.y <= 300) {
+        self.y = self.y + 100;
     }
 
 
